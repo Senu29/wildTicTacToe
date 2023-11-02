@@ -213,9 +213,11 @@ class Board:
         """
         self.turn = Symbol.CROSS if self.turn == Symbol.CIRCLE else Symbol.CIRCLE
         if self.winner() == Symbol.CIRCLE:
-            self.p1_score += 1
-        elif self.winner() == Symbol.CROSS:
+            #self.p1_score += 1
             self.p2_score += 1
+        elif self.winner() == Symbol.CROSS:
+            #self.p2_score += 1
+            self.p1_score += 1
 
     def push(self, square: Square, value: Symbol):
         """Store the symbol into the square

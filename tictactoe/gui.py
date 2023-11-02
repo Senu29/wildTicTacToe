@@ -71,7 +71,7 @@ class Gui:
         connection = self.board.get_connection()
         for row in range(self.board.size):
             for col in range(self.board.size):
-                color = YELLOW if self.board.square_name(
+                color = RED if self.board.square_name(
                     row, col) in connection else WHITE
                 rect = self.get_tile_rect(row, col, 3)
                 square = self.board.square_name(row, col)
@@ -92,10 +92,14 @@ class Gui:
         if self.board.is_draw():
             self.display_text("Draw!", 50, 'center', WINDOW_WIDTH - 50)
         elif self.board.winner() == Symbol.CIRCLE:
-            self.display_text("Newbie Wins!", 50, 'center',
+            # self.display_text("Newbie Wins!", 50, 'center',
+            #                   WINDOW_WIDTH - MARGIN + 10)
+            self.display_text("Batman Wins!", 50, 'center',
                               WINDOW_WIDTH - MARGIN + 10)
         elif self.board.winner() == Symbol.CROSS:
-            self.display_text("Batman Wins!", 50, 'center',
+            # self.display_text("Batman Wins!", 50, 'center',
+            #                   WINDOW_WIDTH - MARGIN + 10)
+            self.display_text("Newbie Wins!", 50, 'center',
                               WINDOW_WIDTH - MARGIN + 10)
         else:
             if self.board.turn == Symbol.CIRCLE:
@@ -115,7 +119,7 @@ class Gui:
                           20, YELLOW)
         self.display_text(f'{str(self.board.p2_score)}', 50,
                           WINDOW_WIDTH - PROFILE_SIZE - 50, 20, YELLOW)
-
+        
     def update_display(self):
         self.window.fill(BLUE)
         self.draw_board()
